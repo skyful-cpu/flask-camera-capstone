@@ -24,10 +24,11 @@ def gesture():
 
 @app.route('/voice', methods = ["POST"])
 def voice():
-    result_dict = {"voice" : "ok"}
+    request_dict = request.get_json()
+    print(request_dict)
 
     response_dict = app.response_class(
-            response = json.dumps(result_dict),
+            response = json.dumps(request_dict),
             status = 200,
             mimetype = 'application/json'
         )
